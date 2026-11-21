@@ -87,18 +87,7 @@ h2{margin:0}
 .box .intro{max-width:680px;display:flex;flex-direction:column;align-items:center;gap:14px}
 .box h2{font-size:clamp(36px,5vw,56px);line-height:1.02;color:var(--navy)}
 .box .intro p{margin:0;font-size:17px;font-weight:500;line-height:1.6;color:#3B4565}
-.votes{width:100%;max-width:1000px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
-.vote{display:flex;flex-direction:column;align-items:center;gap:8px;min-height:130px;padding:18px 12px;border-radius:8px;cursor:pointer;font-family:Montserrat,sans-serif;background:#fff;border:2px solid var(--navy);color:var(--navy);transition:opacity .15s,background .15s}
-.vote .tag{font-style:italic;font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--red)}
-.vote .anton{font-size:22px;line-height:1.05}
-.vote .lbl{font-size:13px;font-weight:700;letter-spacing:.06em}
-.vote:hover{background:#F1F3F8}
-.vote[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
-.vote[aria-pressed="true"] .tag{color:#fff}
-.votes.done .vote[aria-pressed="false"]{opacity:.55}
-.thanks{font-weight:600;font-size:16px;min-height:1.5em;margin:0}
-.thanks b{color:var(--red)}
-.box .links{width:100%;max-width:680px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;padding-top:20px;border-top:1px solid #DDE1EA}
+.box .links{width:100%;max-width:680px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px}
 .box .links a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:6px;background:var(--navy);border:2px solid var(--navy);color:#fff;text-decoration:none;font-size:18px;letter-spacing:.05em}
 .box .links a:hover{background:#1C3166}
 /* footer */
@@ -163,14 +152,12 @@ footer .hash{color:var(--red-t);font-weight:700;font-style:italic}
     </div>
   </section>
 
-  <section class="box" aria-labelledby="vote-h">
+  <section class="box" aria-labelledby="ask-h">
     <img src="logo.jpg" alt="AutoTech Performance logo" width="280" height="280">
     <div class="intro">
-      <h2 id="vote-h" class="anton" data-i18n="askTitle"></h2>
-      <p data-i18n="voteText"></p>
+      <h2 id="ask-h" class="anton" data-i18n="askTitle"></h2>
+      <p data-i18n="askText"></p>
     </div>
-    <div class="votes" id="votes" role="group" aria-labelledby="vote-h"></div>
-    <p class="thanks" id="thanks" role="status"></p>
     <div class="links">
       <a class="anton" href="https://www.youtube.com/@autotech_performance" target="_blank" rel="noopener">YOUTUBE</a>
       <a class="anton" href="https://www.tiktok.com/@autotechjb" target="_blank" rel="noopener">TIKTOK</a>
@@ -204,9 +191,7 @@ footer .hash{color:var(--red-t);font-weight:700;font-style:italic}
       story2: 'Autá ale nikam neodišli a chuť ich dokončiť tiež nie. Dielňa je uprataná, projekty sú späť na zdvihákoch a tentoraz ich dotiahneme do konca.',
       story3: 'Tentoraz s vami. Každý krok, každú zaseknutú skrutku aj prvé naštartovanie uvidíte vo videách. Vďaka, že ste tu – aj tí, čo s nami boli už vtedy.',
       askTitle: 'KTORÝ PROJEKT ŤA ZAUJÍMA NAJVIAC?',
-      voteText: 'Hlasuj za jeden projekt. Najviac hlasov rozhodne, ktorá séria dostane ďalšiu epizódu ako prvá.',
-      vote: 'HLASUJ', voted: '✓ TVOJ HLAS',
-      thanks: 'Ďakujeme! Tvoj hlas:', thanks2: 'Výsledky ukážeme v ďalšom videu.',
+      askText: 'Napíš nám do komentárov pod ktorýmkoľvek videom. Podľa vás sa rozhodujeme, ktorá séria pôjde ďalej.',
       business: 'Spolupráca:',
       title: 'AutoTech Performance – garážové projekty'
     },
@@ -223,9 +208,7 @@ footer .hash{color:var(--red-t);font-weight:700;font-style:italic}
       story2: 'But the cars never left, and neither did the itch to finish them. The shop is cleaned up, the projects are back on the lifts, and this time we are seeing them through.',
       story3: 'This time with you. Every step, every seized bolt and every first start will be on video. Thanks for being here – especially those of you who were here back then.',
       askTitle: 'WHICH BUILD ARE YOU HERE FOR?',
-      voteText: 'Pick one project. The most votes decide which series gets the next episode first.',
-      vote: 'VOTE', voted: '✓ YOUR VOTE',
-      thanks: 'Thanks! Your vote:', thanks2: 'Results in the next video.',
+      askText: 'Tell us in the comments under any video. Your answers decide which series comes next.',
       business: 'Business:',
       title: 'AutoTech Performance – Garage Builds'
     }
@@ -252,7 +235,6 @@ footer .hash{color:var(--red-t);font-weight:700;font-style:italic}
   function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
 
   var lang = store('at_lang') || ((navigator.language || 'sk').toLowerCase().match(/^(sk|cs)/) ? 'sk' : 'en');
-  var voted = store('at_vote');
 
   function renderBuilds() {
     var g = document.getElementById('builds'); g.innerHTML = '';
@@ -272,36 +254,13 @@ footer .hash{color:var(--red-t);font-weight:700;font-style:italic}
     });
   }
 
-  function renderVotes() {
-    var v = document.getElementById('votes'); v.innerHTML = '';
-    v.classList.toggle('done', !!voted);
-    BUILDS.forEach(function (b) {
-      var on = voted === b.tag;
-      var btn = el('button', 'vote');
-      btn.type = 'button';
-      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
-      btn.appendChild(el('span', 'tag', b.brand + ' // ' + b.tag));
-      btn.appendChild(el('span', 'anton', b.name));
-      btn.appendChild(el('span', 'lbl', on ? T[lang].voted : T[lang].vote));
-      btn.addEventListener('click', function () { voted = b.tag; store('at_vote', b.tag); renderVotes(); });
-      v.appendChild(btn);
-    });
-    var t = document.getElementById('thanks'); t.innerHTML = '';
-    var vb = BUILDS.filter(function (b) { return b.tag === voted; })[0];
-    if (vb) {
-      t.appendChild(document.createTextNode(T[lang].thanks + ' '));
-      t.appendChild(el('b', null, vb.name));
-      t.appendChild(document.createTextNode('. ' + T[lang].thanks2));
-    }
-  }
-
   function setLang(l) {
     lang = l; store('at_lang', l);
     document.documentElement.lang = l;
     document.title = T[l].title;
     document.querySelectorAll('[data-i18n]').forEach(function (n) { n.textContent = T[l][n.getAttribute('data-i18n')]; });
     document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === l ? 'true' : 'false'); });
-    renderBuilds(); renderVotes();
+    renderBuilds();
   }
 
   document.querySelectorAll('[data-set-lang]').forEach(function (b) {
