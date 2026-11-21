@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="sk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AutoTech Performance – Garage Builds</title>
+<meta name="description" content="Garážové projekty zo Slovenska: Nissan 200SX S13 SR20DET, BMW E92 N54, E36 M3, E36 drift a Yamaha RD350. Nové epizódy každý týždeň.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="AutoTech Performance – Garage Builds">
+<meta property="og:description" content="Old builds, fresh start. S13 SR20DET • E92 N54 • E36 M3 • RD350. New episodes weekly.">
+<meta property="og:image" content="https://autotechperformance.sk/og-image.jpg">
+<meta property="og:url" content="https://autotechperformance.sk/">
+<meta name="theme-color" content="#0A0F1E">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:ital,wght@0,500;0,600;0,700;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0A0F1E;--navy:#13224A;--card:#121B36;--line:#22305A;--red:#C8262F;--red-d:#A81E26;--red-t:#FF4A55;--blue:#2A52A8;--white:#F4F4F4;--muted:#AEB6CF;--text2:#D5DAE8}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--white);font-family:Montserrat,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:var(--white)}a:hover{color:#FF6B73}
+img{max-width:100%;display:block}
+.anton{font-family:Anton,Impact,sans-serif;font-weight:400}
+.kick{font-style:italic;font-weight:800;color:var(--red-t);letter-spacing:.04em}
+.rule{height:8px;background:linear-gradient(90deg,var(--red) 0 33.3%,var(--white) 33.3% 66.6%,var(--blue) 66.6% 100%)}
+.wrap{width:100%;max-width:1160px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)}
+/* header */
+header{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;padding:14px clamp(20px,5vw,64px)}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand .logo{width:60px;height:60px;background:#fff;border-radius:8px;overflow:hidden;flex-shrink:0}
+.brand .logo img{width:100%;height:100%;object-fit:cover}
+.brand span{font-style:italic;font-weight:800;font-size:18px;letter-spacing:.02em;color:var(--white)}
+.brand span b{color:var(--red-t);font-weight:800}
+.lang{display:flex;border:1px solid #3A4A78;border-radius:6px;overflow:hidden}
+.lang button{border:0;min-width:48px;min-height:44px;padding:0 14px;font:700 14px Montserrat,sans-serif;letter-spacing:.08em;cursor:pointer;background:transparent;color:var(--muted)}
+.lang button:hover{color:#fff}
+.lang button[aria-pressed="true"]{background:var(--red);color:#fff}
+/* hero */
+.hero{position:relative;overflow:hidden;padding:clamp(56px,9vw,120px) clamp(20px,5vw,64px);display:flex;flex-direction:column;align-items:center;gap:28px;text-align:center;background-color:#0E1630;background-image:radial-gradient(ellipse at 50% 40%,rgba(30,52,110,.55),rgba(10,15,30,0) 70%),linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:auto,160px 64px,160px 64px}
+.hero>*{position:relative;z-index:1}
+.st{position:absolute!important;z-index:0!important;width:220px;height:46%;transform:skewX(-28deg);opacity:.9;pointer-events:none}
+.stL{top:-20px;left:-150px;transform-origin:top left;background:linear-gradient(90deg,var(--red) 0 30%,transparent 30% 38%,var(--white) 38% 50%,transparent 50% 58%,var(--blue) 58% 100%)}
+.stR{bottom:-20px;right:-150px;transform-origin:bottom right;background:linear-gradient(90deg,var(--blue) 0 42%,transparent 42% 50%,var(--white) 50% 62%,transparent 62% 70%,var(--red) 70% 100%)}
+@media (max-width:900px){.st{opacity:.35;width:140px}}
+.hero .kick{font-size:clamp(18px,2.6vw,30px)}
+.makes{width:100%;max-width:1100px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));justify-items:center;gap:clamp(20px,4vw,56px)}
+.make{display:flex;flex-direction:column;align-items:center;gap:10px}
+.make .anton{font-size:clamp(60px,8.5vw,112px);line-height:1;margin:0}
+.make small{font-style:italic;font-weight:700;font-size:15px;color:var(--muted)}
+.lead{margin:8px 0 0;max-width:640px;font-size:18px;font-weight:500;line-height:1.6;color:var(--text2)}
+.weekly{font-style:italic;font-weight:800;font-size:20px;letter-spacing:.02em}
+.channels{width:100%;max-width:920px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:8px}
+.ch{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;min-height:76px;padding:12px;background:var(--red);color:#fff;text-decoration:none;border-radius:6px;transition:background .15s}
+.ch:hover{background:var(--red-d);color:#fff}
+.ch .anton{font-size:26px;letter-spacing:.04em;line-height:1}
+.ch small{font-size:13px;font-weight:600;color:#FFE1E3}
+/* main */
+main{padding-top:72px;padding-bottom:72px;display:flex;flex-direction:column;gap:72px}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+h2{margin:0}
+.head h2{font-size:48px;letter-spacing:.01em}
+.head p{margin:0;font-style:italic;font-weight:700;font-size:14px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:24px;display:flex;flex-direction:column;gap:12px;min-height:230px;transition:border-color .15s}
+.card:hover{border-color:var(--blue)}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.card .tag{font-style:italic;font-weight:800;font-size:14px;letter-spacing:.06em;color:var(--red-t)}
+.badge{background:var(--blue);color:#fff;font-size:11px;font-weight:700;letter-spacing:.1em;padding:5px 9px;border-radius:4px}
+.card h3{margin:0;font-size:34px;line-height:1.05}
+.card p{margin:0;font-size:15px;font-weight:500;line-height:1.55;color:#C5CBDD;flex-grow:1}
+.card .status{display:flex;gap:8px;font-size:13px;font-weight:600;padding-top:12px;border-top:1px solid var(--line)}
+.card .status span:first-child{color:#8E98B8}
+/* story */
+.story{display:flex;flex-wrap:wrap;gap:clamp(24px,4vw,56px);align-items:flex-start;padding-top:32px;border-top:2px solid var(--line)}
+.story .l{flex:1 1 300px;display:flex;flex-direction:column;gap:12px}
+.story .l .kick{font-size:14px}
+.story h2{font-size:clamp(40px,5.5vw,64px);line-height:1}
+.story .r{flex:999 1 420px;min-width:0;display:flex;flex-direction:column;gap:16px;font-size:17px;font-weight:500;line-height:1.7;color:var(--text2)}
+.story .r p{margin:0}
+.story .r p.strong{color:var(--white);font-weight:700}
+/* white box */
+.box{background:#fff;color:var(--navy);border-radius:12px;padding:clamp(24px,4vw,48px);display:flex;flex-direction:column;gap:24px;align-items:center;text-align:center}
+.box>img{width:280px;height:auto}
+.box .intro{max-width:680px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.box h2{font-size:clamp(36px,5vw,56px);line-height:1.02;color:var(--navy)}
+.box .intro p{margin:0;font-size:17px;font-weight:500;line-height:1.6;color:#3B4565}
+.votes{width:100%;max-width:1000px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.vote{display:flex;flex-direction:column;align-items:center;gap:8px;min-height:130px;padding:18px 12px;border-radius:8px;cursor:pointer;font-family:Montserrat,sans-serif;background:#fff;border:2px solid var(--navy);color:var(--navy);transition:opacity .15s,background .15s}
+.vote .tag{font-style:italic;font-weight:800;font-size:13px;letter-spacing:.06em;color:var(--red)}
+.vote .anton{font-size:22px;line-height:1.05}
+.vote .lbl{font-size:13px;font-weight:700;letter-spacing:.06em}
+.vote:hover{background:#F1F3F8}
+.vote[aria-pressed="true"]{background:var(--red);border-color:var(--red);color:#fff}
+.vote[aria-pressed="true"] .tag{color:#fff}
+.votes.done .vote[aria-pressed="false"]{opacity:.55}
+.thanks{font-weight:600;font-size:16px;min-height:1.5em;margin:0}
+.thanks b{color:var(--red)}
+.box .links{width:100%;max-width:680px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;padding-top:20px;border-top:1px solid #DDE1EA}
+.box .links a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:6px;background:var(--navy);border:2px solid var(--navy);color:#fff;text-decoration:none;font-size:18px;letter-spacing:.05em}
+.box .links a:hover{background:#1C3166}
+/* footer */
+footer{padding:24px clamp(20px,5vw,64px);display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:14px;font-weight:500;color:var(--muted)}
+footer .hash{color:var(--red-t);font-weight:700;font-style:italic}
+:focus-visible{outline:3px solid #FFB000;outline-offset:2px}
+</style>
+</head>
+<body>
+
+<header>
+  <a class="brand" href="#top" aria-label="AutoTech Performance">
+    <div class="logo"><img src="logo.jpg" alt="AutoTech Performance logo" width="60" height="60"></div>
+    <span>AUTOTECH <b>PERFORMANCE</b></span>
+  </a>
+  <div class="lang" role="group" aria-label="Jazyk / Language">
+    <button type="button" data-set-lang="sk" aria-pressed="true">SK</button>
+    <button type="button" data-set-lang="en" aria-pressed="false">EN</button>
+  </div>
+</header>
+<div class="rule" aria-hidden="true"></div>
+
+<section class="hero" id="top">
+  <div class="st stL" aria-hidden="true"></div>
+  <div class="st stR" aria-hidden="true"></div>
+  <div class="kick">AUTOTECH PERFORMANCE // GARAGE BUILDS</div>
+  <div class="makes">
+    <div class="make"><h1 class="anton">BMW</h1><small>E92 N54 · E36 M3 · E36 DRIFT</small></div>
+    <div class="make"><div class="anton">NISSAN</div><small>200SX S13 · SR20DET</small></div>
+    <div class="make"><div class="anton">YAMAHA</div><small>RD350 → R1-Z</small></div>
+  </div>
+  <p class="lead" data-i18n="lead"></p>
+  <div class="weekly" data-i18n="weekly"></div>
+  <nav class="channels" aria-label="Social">
+    <a class="ch" href="https://www.youtube.com/@autotech_performance" target="_blank" rel="noopener"><span class="anton">YOUTUBE</span><small>@autotech_performance</small></a>
+    <a class="ch" href="https://www.tiktok.com/@autotechjb" target="_blank" rel="noopener"><span class="anton">TIKTOK</span><small>@autotechjb</small></a>
+    <a class="ch" href="https://www.instagram.com/autotechperformance" target="_blank" rel="noopener"><span class="anton">INSTAGRAM</span><small>@autotechperformance</small></a>
+    <a class="ch" href="https://www.facebook.com/share/1QDccGKwnE/" target="_blank" rel="noopener"><span class="anton">FACEBOOK</span><small>AutoTech Performance</small></a>
+  </nav>
+</section>
+<div class="rule" aria-hidden="true"></div>
+
+<main class="wrap">
+
+  <section aria-labelledby="builds-h">
+    <div class="head">
+      <h2 id="builds-h" class="anton" data-i18n="buildsTitle"></h2>
+      <p data-i18n="buildsNote"></p>
+    </div>
+    <div class="grid" id="builds"></div>
+  </section>
+
+  <section class="story" aria-labelledby="story-h">
+    <div class="l">
+      <div class="kick" data-i18n="storyKicker"></div>
+      <h2 id="story-h" class="anton" data-i18n="storyTitle"></h2>
+    </div>
+    <div class="r">
+      <p data-i18n="story1"></p>
+      <p data-i18n="story2"></p>
+      <p class="strong" data-i18n="story3"></p>
+    </div>
+  </section>
+
+  <section class="box" aria-labelledby="vote-h">
+    <img src="logo.jpg" alt="AutoTech Performance logo" width="280" height="280">
+    <div class="intro">
+      <h2 id="vote-h" class="anton" data-i18n="askTitle"></h2>
+      <p data-i18n="voteText"></p>
+    </div>
+    <div class="votes" id="votes" role="group" aria-labelledby="vote-h"></div>
+    <p class="thanks" id="thanks" role="status"></p>
+    <div class="links">
+      <a class="anton" href="https://www.youtube.com/@autotech_performance" target="_blank" rel="noopener">YOUTUBE</a>
+      <a class="anton" href="https://www.tiktok.com/@autotechjb" target="_blank" rel="noopener">TIKTOK</a>
+      <a class="anton" href="https://www.instagram.com/autotechperformance" target="_blank" rel="noopener">INSTAGRAM</a>
+      <a class="anton" href="https://www.facebook.com/share/1QDccGKwnE/" target="_blank" rel="noopener">FACEBOOK</a>
+    </div>
+  </section>
+
+</main>
+
+<div class="rule" aria-hidden="true"></div>
+<footer>
+  <span><span data-i18n="business"></span> <a href="mailto:info@autotechperformance.sk">info@autotechperformance.sk</a></span>
+  <span class="hash">#autotechperformance</span>
+  <span>© <span id="year">2026</span> AutoTech Performance · autotechperformance.sk</span>
+</footer>
+
+<script>
+(function () {
+  var T = {
+    sk: {
+      lead: 'Prestavby, swapy motorov a ladenie priamo z našej dielne na Slovensku. Každý projekt má vlastnú sériu epizód a dokumentujeme ho od začiatku až po úplný koniec.',
+      weekly: 'NOVÉ EPIZÓDY KAŽDÝ TÝŽDEŇ',
+      buildsTitle: 'PROJEKTY V DIELNI',
+      buildsNote: 'Každá séria má číslované epizódy, napr. S13 | EP.1',
+      mainSeries: 'HLAVNÁ SÉRIA',
+      status: 'Stav:',
+      storyKicker: 'NÁŠ PRÍBEH',
+      storyTitle: 'STARÉ PROJEKTY. NOVÝ ŠTART.',
+      story1: 'Na našich profiloch nájdeš aj príspevky staré dva – tri roky. Áno, sú to tie isté autá. S13, E92, M3, drift aj RD350 sme kedysi rozbehli s veľkými plánmi a potom ich život poslal na druhú koľaj. Prednosť dostala práca a ďalšie povinnosti, ako to už chodí.',
+      story2: 'Autá ale nikam neodišli a chuť ich dokončiť tiež nie. Dielňa je uprataná, projekty sú späť na zdvihákoch a tentoraz ich dotiahneme do konca.',
+      story3: 'Tentoraz s vami. Každý krok, každú zaseknutú skrutku aj prvé naštartovanie uvidíte vo videách. Vďaka, že ste tu – aj tí, čo s nami boli už vtedy.',
+      askTitle: 'KTORÝ PROJEKT ŤA ZAUJÍMA NAJVIAC?',
+      voteText: 'Hlasuj za jeden projekt. Najviac hlasov rozhodne, ktorá séria dostane ďalšiu epizódu ako prvá.',
+      vote: 'HLASUJ', voted: '✓ TVOJ HLAS',
+      thanks: 'Ďakujeme! Tvoj hlas:', thanks2: 'Výsledky ukážeme v ďalšom videu.',
+      business: 'Spolupráca:',
+      title: 'AutoTech Performance – garážové projekty'
+    },
+    en: {
+      lead: 'Rebuilds, engine swaps and tuning straight from our workshop in Slovakia. Every project gets its own episode series, documented from the very start to the very end.',
+      weekly: 'NEW EPISODES WEEKLY',
+      buildsTitle: 'BUILDS IN THE SHOP',
+      buildsNote: 'Every series has numbered episodes, e.g. S13 | EP.1',
+      mainSeries: 'MAIN SERIES',
+      status: 'Status:',
+      storyKicker: 'OUR STORY',
+      storyTitle: 'OLD BUILDS. FRESH START.',
+      story1: 'Scroll down our profiles and you will find posts that are two or three years old. Yes, those are the same cars. We started the S13, E92, M3, the drift car and the RD350 with big plans, and then life put them on the back burner. Work and other commitments came first, as they do.',
+      story2: 'But the cars never left, and neither did the itch to finish them. The shop is cleaned up, the projects are back on the lifts, and this time we are seeing them through.',
+      story3: 'This time with you. Every step, every seized bolt and every first start will be on video. Thanks for being here – especially those of you who were here back then.',
+      askTitle: 'WHICH BUILD ARE YOU HERE FOR?',
+      voteText: 'Pick one project. The most votes decide which series gets the next episode first.',
+      vote: 'VOTE', voted: '✓ YOUR VOTE',
+      thanks: 'Thanks! Your vote:', thanks2: 'Results in the next video.',
+      business: 'Business:',
+      title: 'AutoTech Performance – Garage Builds'
+    }
+  };
+  var BUILDS = [
+    { brand: 'NISSAN', tag: 'S13', main: true, name: '200SX S13 · SR20DET',
+      sk: ['Kompletný rebuild a swap SR20DET. Od holej karosérie po prvú jazdu.', 'holá karoséria, pripravená na prácu'],
+      en: ['Full rebuild and SR20DET swap. From bare shell to first drive.', 'bare shell, ready for work'] },
+    { brand: 'BMW', tag: 'E92', name: 'E92 · N54',
+      sk: ['Swap N54, port injection, DI delete a kabeláž pre ECUMaster.', 'štartuje, ladenie a kabeláž'],
+      en: ['N54 swap, port injection, DI delete and ECUMaster wiring.', 'running, tuning and wiring'] },
+    { brand: 'BMW', tag: 'M3', name: 'E36 M3',
+      sk: ['Karoséria a interiér: sedadlá Vader, pôvodné rádio, čalúnenie, stropnica.', 'pojazdná, bez nárazníkov a svetiel'],
+      en: ['Body and interior: Vader seats, original radio, upholstery, headliner.', 'rolling, no bumpers or lights'] },
+    { brand: 'BMW', tag: 'DRIFT', name: 'E36 DRIFT · M50 TURBO',
+      sk: ['Driftové E36 s turbo M50B25. Občasné updaty.', 'vyrámovaná, orezaná karoséria s motorom'],
+      en: ['E36 drift car with a turbo M50B25. Occasional updates.', 'framed, cut-down shell with engine'] },
+    { brand: 'YAMAHA', tag: 'RD350', name: 'RD350 → R1-Z',
+      sk: ['Dvojtakt 350 cm³ ide do štýlu R1-Z. Kompletný rebuild.', 'jazdí skvele, vyzerá hrozne'],
+      en: ['350cc two-stroke going R1-Z style. Full rebuild.', 'runs great, looks terrible'] }
+  ];
+
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) { return null; } }
+  function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
+
+  var lang = store('at_lang') || ((navigator.language || 'sk').toLowerCase().match(/^(sk|cs)/) ? 'sk' : 'en');
+  var voted = store('at_vote');
+
+  function renderBuilds() {
+    var g = document.getElementById('builds'); g.innerHTML = '';
+    BUILDS.forEach(function (b) {
+      var c = el('article', 'card');
+      var top = el('div', 'top');
+      top.appendChild(el('span', 'tag', b.brand + ' // ' + b.tag));
+      if (b.main) top.appendChild(el('span', 'badge', T[lang].mainSeries));
+      c.appendChild(top);
+      c.appendChild(el('h3', 'anton', b.name));
+      c.appendChild(el('p', null, b[lang][0]));
+      var s = el('div', 'status');
+      s.appendChild(el('span', null, T[lang].status));
+      s.appendChild(el('span', null, b[lang][1]));
+      c.appendChild(s);
+      g.appendChild(c);
+    });
+  }
+
+  function renderVotes() {
+    var v = document.getElementById('votes'); v.innerHTML = '';
+    v.classList.toggle('done', !!voted);
+    BUILDS.forEach(function (b) {
+      var on = voted === b.tag;
+      var btn = el('button', 'vote');
+      btn.type = 'button';
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+      btn.appendChild(el('span', 'tag', b.brand + ' // ' + b.tag));
+      btn.appendChild(el('span', 'anton', b.name));
+      btn.appendChild(el('span', 'lbl', on ? T[lang].voted : T[lang].vote));
+      btn.addEventListener('click', function () { voted = b.tag; store('at_vote', b.tag); renderVotes(); });
+      v.appendChild(btn);
+    });
+    var t = document.getElementById('thanks'); t.innerHTML = '';
+    var vb = BUILDS.filter(function (b) { return b.tag === voted; })[0];
+    if (vb) {
+      t.appendChild(document.createTextNode(T[lang].thanks + ' '));
+      t.appendChild(el('b', null, vb.name));
+      t.appendChild(document.createTextNode('. ' + T[lang].thanks2));
+    }
+  }
+
+  function setLang(l) {
+    lang = l; store('at_lang', l);
+    document.documentElement.lang = l;
+    document.title = T[l].title;
+    document.querySelectorAll('[data-i18n]').forEach(function (n) { n.textContent = T[l][n.getAttribute('data-i18n')]; });
+    document.querySelectorAll('[data-set-lang]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === l ? 'true' : 'false'); });
+    renderBuilds(); renderVotes();
+  }
+
+  document.querySelectorAll('[data-set-lang]').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-set-lang')); });
+  });
+  document.getElementById('year').textContent = new Date().getFullYear();
+  setLang(lang);
+})();
+</script>
+</body>
+</html>
